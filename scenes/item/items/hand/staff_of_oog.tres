@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://fyr7f64mjhw3"]
+
+[ext_resource type="Script" path="res://scenes/item/item.gd" id="1_5k052"]
+[ext_resource type="Script" path="res://scenes/item/action.gd" id="1_qac1o"]
+[ext_resource type="Script" path="res://scenes/item/modifier.gd" id="1_r6i4a"]
+[ext_resource type="Texture2D" uid="uid://um045j45lmr6" path="res://scenes/item/items/hand/staff_of_oog.png" id="3_msvp7"]
+
+[resource]
+script = ExtResource("1_5k052")
+name = "Staff of Oog"
+slot = 2
+wiki_page = ""
+modifiers = Array[ExtResource("1_r6i4a")]([])
+actions = Array[ExtResource("1_qac1o")]([])
+texture = ExtResource("3_msvp7")
+offset = Vector2(0, 0)

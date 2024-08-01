@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ResourcePool" load_steps=7 format=3 uid="uid://dtn2d2ll063mt"]
+
+[ext_resource type="Script" path="res://global/resource_pool/resource_pool_entry.gd" id="1_ifk87"]
+[ext_resource type="Script" path="res://global/resource_pool/resource_pool.gd" id="2_pm0lp"]
+[ext_resource type="Resource" uid="uid://cv38s3adoiax0" path="res://scenes/item/items/hand/dagger.tres" id="2_ublfx"]
+[ext_resource type="Resource" uid="uid://c0aknhsgvs7iv" path="res://scenes/item/items/hand/boar_club.tres" id="3_ojb2g"]
+
+[sub_resource type="Resource" id="Resource_qop7m"]
+script = ExtResource("1_ifk87")
+weight = 1.0
+value = ExtResource("2_ublfx")
+
+[sub_resource type="Resource" id="Resource_36hvt"]
+script = ExtResource("1_ifk87")
+weight = 2.0
+value = ExtResource("3_ojb2g")
+
+[resource]
+script = ExtResource("2_pm0lp")
+entries = Array[ExtResource("1_ifk87")]([SubResource("Resource_qop7m"), SubResource("Resource_36hvt")])

@@ -1,0 +1,69 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://didth2ab0d5fa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53sbx"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.0666667, 0.0666667, 0.105882, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73r8g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pf8dw"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.266667, 0.266667, 0.294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcutb"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0, 0, 0.0431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_by1dk"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.266667, 0.266667, 0.294118, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uyu22"]
+color = Color(1, 1, 1, 0.501961)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhl23"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjwgi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qilv4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qk26x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvg5k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_007yo"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0, 0, 0.0431373, 0.501961)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_387ba"]
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_53sbx")
+Button/styles/focus = SubResource("StyleBoxEmpty_73r8g")
+Button/styles/hover = SubResource("StyleBoxFlat_pf8dw")
+Button/styles/normal = SubResource("StyleBoxFlat_hcutb")
+Button/styles/pressed = SubResource("StyleBoxFlat_by1dk")
+HSeparator/constants/separation = 4
+HSeparator/styles/separator = SubResource("StyleBoxLine_uyu22")
+HiddenButton/base_type = &"Button"
+HiddenButton/styles/disabled = SubResource("StyleBoxEmpty_qhl23")
+HiddenButton/styles/focus = SubResource("StyleBoxEmpty_kjwgi")
+HiddenButton/styles/hover = SubResource("StyleBoxEmpty_qilv4")
+HiddenButton/styles/normal = SubResource("StyleBoxEmpty_qk26x")
+HiddenButton/styles/pressed = SubResource("StyleBoxEmpty_tvg5k")
+Label/font_sizes/font_size = 20
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_007yo")
+RichTextLabel/font_sizes/normal_font_size = 20
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_387ba")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b53d2deklmd0q"]
+
+[ext_resource type="Texture2D" uid="uid://c0kjtgkal1edt" path="res://scenes/info/item_slot/slot_hat.png" id="1_e8ril"]
+[ext_resource type="Script" path="res://scenes/info/item_slot/item_slot.gd" id="2_0lj1w"]
+[ext_resource type="Script" path="res://scenes/game/c_tooltip.gd" id="4_gdlrf"]
+
+[node name="ItemSlot" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_e8ril")
+script = ExtResource("2_0lj1w")
+modifiable = true
+slot_type = 0
+flip = false
+
+[node name="Item" type="Sprite2D" parent="."]
+position = Vector2(20, 20)
+
+[node name="CTooltip" type="Node" parent="."]
+script = ExtResource("4_gdlrf")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Item" load_steps=12 format=3 uid="uid://c0aknhsgvs7iv"]
+
+[ext_resource type="Script" path="res://scenes/item/action.gd" id="1_cyxt8"]
+[ext_resource type="Script" path="res://scenes/item/modifier.gd" id="2_hubhw"]
+[ext_resource type="Script" path="res://scenes/item/equation/constant.gd" id="2_leig2"]
+[ext_resource type="Script" path="res://scenes/item/equation/stat.gd" id="3_0p6je"]
+[ext_resource type="Script" path="res://scenes/item/item.gd" id="3_xk3hq"]
+[ext_resource type="Script" path="res://scenes/item/effect/melee_damage.gd" id="4_xrd80"]
+[ext_resource type="Texture2D" uid="uid://bgyy3g05wghjb" path="res://scenes/item/items/hand/boar_club.png" id="7_oijtj"]
+
+[sub_resource type="Resource" id="Resource_iswl7"]
+script = ExtResource("2_leig2")
+value = 3
+
+[sub_resource type="Resource" id="Resource_7gfv6"]
+script = ExtResource("3_0p6je")
+stat = 0
+
+[sub_resource type="Resource" id="Resource_ahpsh"]
+script = ExtResource("4_xrd80")
+min_damage = SubResource("Resource_7gfv6")
+max_damage = SubResource("Resource_iswl7")
+
+[sub_resource type="Resource" id="Resource_ob6wk"]
+script = ExtResource("1_cyxt8")
+name = "bonk"
+target = 2
+effect = SubResource("Resource_ahpsh")
+ap_cost = 1
+animation = "swing_1"
+
+[resource]
+script = ExtResource("3_xk3hq")
+name = "boar club"
+slot = 2
+wiki_page = ""
+modifiers = Array[ExtResource("2_hubhw")]([])
+actions = Array[ExtResource("1_cyxt8")]([SubResource("Resource_ob6wk")])
+texture = ExtResource("7_oijtj")
+offset = Vector2(0, -9)

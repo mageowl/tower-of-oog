@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Item" load_steps=12 format=3 uid="uid://cpfdt8diwyisn"]
+
+[ext_resource type="Script" path="res://scenes/item/modifier.gd" id="1_frilw"]
+[ext_resource type="Script" path="res://scenes/item/action.gd" id="1_pqs0p"]
+[ext_resource type="Script" path="res://scenes/item/item.gd" id="1_ugy6n"]
+[ext_resource type="Script" path="res://scenes/item/equation/constant.gd" id="2_tbij6"]
+[ext_resource type="Script" path="res://scenes/item/equation/stat.gd" id="3_faksk"]
+[ext_resource type="Script" path="res://scenes/item/equation/sum.gd" id="4_vngy4"]
+[ext_resource type="Texture2D" uid="uid://dm440i2c4jq2v" path="res://scenes/item/items/body/wizard_cloak.png" id="6_aid44"]
+
+[sub_resource type="Resource" id="Resource_dls3h"]
+script = ExtResource("2_tbij6")
+value = 7
+
+[sub_resource type="Resource" id="Resource_14m7v"]
+script = ExtResource("3_faksk")
+stat = 2
+
+[sub_resource type="Resource" id="Resource_plfrw"]
+script = ExtResource("4_vngy4")
+a = SubResource("Resource_dls3h")
+b = SubResource("Resource_14m7v")
+
+[sub_resource type="Resource" id="Resource_wlnn4"]
+script = ExtResource("1_frilw")
+type = 0
+target = 3
+equation = SubResource("Resource_plfrw")
+
+[resource]
+script = ExtResource("1_ugy6n")
+name = "Wizard Cloak"
+slot = 1
+wiki_page = ""
+modifiers = Array[ExtResource("1_frilw")]([SubResource("Resource_wlnn4")])
+actions = Array[ExtResource("1_pqs0p")]([])
+texture = ExtResource("6_aid44")
+offset = Vector2(0, 0)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1fus20ooity3"]
+
+[ext_resource type="Script" path="res://scenes/game/cursor_manager.gd" id="1_iw0j4"]
+[ext_resource type="Texture2D" uid="uid://drt4e1kbe13gt" path="res://global/theme/cursor.png" id="2_gpfeu"]
+[ext_resource type="Texture2D" uid="uid://c38vwax1r6s4h" path="res://global/theme/cursor_wiki.png" id="3_kr2f0"]
+[ext_resource type="Texture2D" uid="uid://um045j45lmr6" path="res://scenes/item/items/hand/staff_of_oog.png" id="4_a28le"]
+
+[node name="CursorManager" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_iw0j4")
+cursor = ExtResource("2_gpfeu")
+cursor_wiki_link = ExtResource("3_kr2f0")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_gpfeu")
+centered = false
+offset = Vector2(-5, -3)
+
+[node name="Tooltip" type="PanelContainer" parent="Sprite"]
+offset_left = 12.0
+offset_top = 16.0
+offset_right = 22.0
+offset_bottom = 16.0
+
+[node name="Label" type="Label" parent="Sprite/Tooltip"]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Item" type="Sprite2D" parent="Sprite"]
+visible = false
+show_behind_parent = true
+texture = ExtResource("4_a28le")
+centered = false

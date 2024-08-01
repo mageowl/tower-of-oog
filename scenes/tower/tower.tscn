@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlgctuv3ksc7p"]
+
+[ext_resource type="Texture2D" uid="uid://dyxjknr24qqci" path="res://scenes/tower/sky.png" id="1_dh5cp"]
+[ext_resource type="Script" path="res://scenes/tower/tower.gd" id="1_dw11y"]
+[ext_resource type="Texture2D" uid="uid://1485qcbfwmbh" path="res://scenes/tower/grass.png" id="2_b7qxg"]
+[ext_resource type="Texture2D" uid="uid://ck8hm32i208bc" path="res://scenes/tower/dirt.png" id="3_mx0gk"]
+
+[node name="Tower" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dw11y")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dh5cp")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Floor" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+offset_right = 40.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_b7qxg")
+stretch_mode = 1
+
+[node name="Wall" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_mx0gk")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CenterContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -158.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Players" type="HBoxContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Enemies" type="HBoxContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1

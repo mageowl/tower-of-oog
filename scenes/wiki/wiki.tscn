@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk0cjnk50b7mp"]
+
+[ext_resource type="Script" path="res://scenes/wiki/wiki.gd" id="1_74wto"]
+[ext_resource type="FontFile" uid="uid://ysctpo7l0nbu" path="res://global/theme/numbers.png" id="1_hq36h"]
+
+[node name="Wiki" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/italics_font = ExtResource("1_hq36h")
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+hint_underlined = false
+script = ExtResource("1_74wto")
+
+[connection signal="meta_clicked" from="." to="." method="_on_meta_clicked"]

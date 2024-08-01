@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ResourcePool" load_steps=7 format=3 uid="uid://dn5lho1smwp2l"]
+
+[ext_resource type="Script" path="res://global/resource_pool/resource_pool_entry.gd" id="1_vstb3"]
+[ext_resource type="Resource" uid="uid://dtn2d2ll063mt" path="res://scenes/item/pools/hand/lvl0_melee.tres" id="2_chen1"]
+[ext_resource type="Script" path="res://global/resource_pool/resource_pool.gd" id="2_qk7xw"]
+[ext_resource type="Script" path="res://scenes/creature/type/goblin/goblin_entry.gd" id="2_tp7yo"]
+
+[sub_resource type="Resource" id="Resource_y3jyu"]
+script = ExtResource("2_tp7yo")
+pool_hand_dominant = ExtResource("2_chen1")
+encounter_point_cost = 1
+power = 5
+
+[sub_resource type="Resource" id="Resource_vhu4j"]
+script = ExtResource("1_vstb3")
+weight = 4.0
+value = SubResource("Resource_y3jyu")
+
+[resource]
+script = ExtResource("2_qk7xw")
+entries = Array[ExtResource("1_vstb3")]([SubResource("Resource_vhu4j")])

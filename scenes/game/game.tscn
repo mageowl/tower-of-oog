@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://cj0kk4qhdl2nh"]
+
+[ext_resource type="PackedScene" uid="uid://dlgctuv3ksc7p" path="res://scenes/tower/tower.tscn" id="1_2q744"]
+[ext_resource type="PackedScene" uid="uid://ovl0dhymxe6p" path="res://scenes/log/log.tscn" id="2_m10g5"]
+[ext_resource type="PackedScene" uid="uid://dk0cjnk50b7mp" path="res://scenes/wiki/wiki.tscn" id="3_5tjq0"]
+[ext_resource type="Script" path="res://scenes/game/info_panel.gd" id="3_qhvx7"]
+[ext_resource type="Texture2D" uid="uid://bh7os025kuxig" path="res://scenes/wiki/book.png" id="4_1olrk"]
+[ext_resource type="PackedScene" uid="uid://d1fus20ooity3" path="res://scenes/game/cursor_manager.tscn" id="4_6ma00"]
+[ext_resource type="PackedScene" uid="uid://cufarbybmd36h" path="res://scenes/info/unit_info.tscn" id="4_x4ymn"]
+[ext_resource type="Script" path="res://scenes/game/c_tooltip.gd" id="5_ecadw"]
+[ext_resource type="Texture2D" uid="uid://b4mswsh6gw6uc" path="res://scenes/wiki/book_open.png" id="5_si7ti"]
+[ext_resource type="Script" path="res://scenes/game/new_game.gd" id="9_2bp3h"]
+
+[node name="Application" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 28
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Game"]
+layout_mode = 2
+split_offset = 700
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Game/HSplitContainer"]
+layout_mode = 2
+split_offset = 300
+
+[node name="Tower" parent="Game/HSplitContainer/VSplitContainer" instance=ExtResource("1_2q744")]
+layout_mode = 2
+
+[node name="Log" parent="Game/HSplitContainer/VSplitContainer" instance=ExtResource("2_m10g5")]
+layout_mode = 2
+
+[node name="InfoPanel" type="Control" parent="Game/HSplitContainer"]
+layout_mode = 2
+script = ExtResource("3_qhvx7")
+
+[node name="TabContainer" type="TabContainer" parent="Game/HSplitContainer/InfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+tabs_visible = false
+
+[node name="UnitInfo" parent="Game/HSplitContainer/InfoPanel/TabContainer" instance=ExtResource("4_x4ymn")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Wiki" parent="Game/HSplitContainer/InfoPanel/TabContainer" instance=ExtResource("3_5tjq0")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="OpenWiki" type="TextureButton" parent="Game/HSplitContainer/InfoPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_bottom = 40.0
+grow_horizontal = 0
+toggle_mode = true
+texture_normal = ExtResource("4_1olrk")
+texture_pressed = ExtResource("5_si7ti")
+
+[node name="CTooltip" type="Node" parent="Game/HSplitContainer/InfoPanel/OpenWiki"]
+script = ExtResource("5_ecadw")
+label = "wiki"
+
+[node name="Menu" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="NewGame" type="Button" parent="Menu"]
+layout_mode = 2
+text = "new game"
+script = ExtResource("9_2bp3h")
+
+[node name="SaveAndQuit" type="Button" parent="Menu"]
+layout_mode = 2
+text = "save and quit"
+
+[node name="Settings" type="Button" parent="Menu"]
+layout_mode = 2
+text = "settings"
+
+[node name="CursorManager" parent="." instance=ExtResource("4_6ma00")]
+
+[connection signal="tab_changed" from="Game/HSplitContainer/InfoPanel/TabContainer" to="Game/HSplitContainer/InfoPanel" method="_on_tab_container_tab_changed"]
+[connection signal="tab_changed" from="Game/HSplitContainer/InfoPanel/TabContainer" to="Game/HSplitContainer/InfoPanel" method="_on_tab_changed"]
+[connection signal="toggled" from="Game/HSplitContainer/InfoPanel/OpenWiki" to="Game/HSplitContainer/InfoPanel" method="_on_wiki_toggled"]
+[connection signal="pressed" from="Menu/NewGame" to="Menu/NewGame" method="_on_pressed"]

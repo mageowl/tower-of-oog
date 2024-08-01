@@ -1,0 +1,240 @@
+[gd_scene load_steps=10 format=3 uid="uid://cufarbybmd36h"]
+
+[ext_resource type="Script" path="res://scenes/info/unit_info.gd" id="1_jffd1"]
+[ext_resource type="Script" path="res://scenes/wiki/c_wiki_link.gd" id="1_xwm5u"]
+[ext_resource type="Script" path="res://scenes/game/c_tooltip.gd" id="2_27abi"]
+[ext_resource type="PackedScene" uid="uid://b53d2deklmd0q" path="res://scenes/info/item_slot/item_slot.tscn" id="2_b81ho"]
+[ext_resource type="Texture2D" uid="uid://tfla51pjeqs2" path="res://scenes/info/item_slot/slot_hand_l.png" id="3_figxy"]
+[ext_resource type="Texture2D" uid="uid://bbow8v6ru42d6" path="res://scenes/info/item_slot/slot_hand_r.png" id="4_ljyuy"]
+[ext_resource type="Texture2D" uid="uid://bijtu62d7v6h1" path="res://scenes/info/item_slot/slot_body.png" id="5_c5fup"]
+[ext_resource type="Texture2D" uid="uid://o5m6mf8wfe8n" path="res://scenes/info/item_slot/slot_any.png" id="6_217sm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_edh72"]
+font_size = 20
+font_color = Color(1, 1, 1, 0.501961)
+
+[node name="UnitInfo" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+script = ExtResource("1_jffd1")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+tabs_visible = false
+
+[node name="SelectMessage" type="CenterContainer" parent="VSplitContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label" type="Label" parent="VSplitContainer/TabContainer/SelectMessage"]
+layout_mode = 2
+text = "click on a creature
+to view information."
+label_settings = SubResource("LabelSettings_edh72")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VSplitContainer/TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+metadata/_tab_index = 1
+
+[node name="InfoContainer" type="VBoxContainer" parent="VSplitContainer/TabContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "jack the ooze"
+
+[node name="CreatureType" type="Label" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer"]
+layout_mode = 2
+mouse_filter = 0
+text = "human"
+
+[node name="CWikiLink" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/CreatureType"]
+script = ExtResource("1_xwm5u")
+file = "res://wiki/creatures/humans.md"
+
+[node name="Points" type="HBoxContainer" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HP" type="Label" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Points"]
+layout_mode = 2
+mouse_filter = 0
+text = "10/10 hp"
+
+[node name="CWikiLink" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Points/HP"]
+script = ExtResource("1_xwm5u")
+file = "res://wiki/combat/health.md"
+
+[node name="AP" type="Label" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Points"]
+layout_mode = 2
+mouse_filter = 0
+text = "2/2 ap"
+
+[node name="CWikiLink" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Points/AP"]
+script = ExtResource("1_xwm5u")
+file = "res://wiki/combat/action_points.md"
+
+[node name="DodgeChance" type="Label" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Points"]
+layout_mode = 2
+mouse_filter = 0
+text = "20% dc"
+
+[node name="CWikiLink" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Points/DodgeChance"]
+script = ExtResource("1_xwm5u")
+file = "res://wiki/combat/dodge_chance.md"
+
+[node name="HSeparator" type="HSeparator" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer"]
+layout_mode = 2
+
+[node name="Row" type="HBoxContainer" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer"]
+layout_mode = 2
+
+[node name="Statistics" type="VBoxContainer" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Might" type="Label" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/Statistics"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 0
+text = "might +4"
+
+[node name="CWikiLink" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/Statistics/Might"]
+script = ExtResource("1_xwm5u")
+file = "res://wiki/combat/statistics/might.md"
+
+[node name="CTooltip" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/Statistics/Might"]
+script = ExtResource("2_27abi")
+label = "base +3
+ooze shoes +1"
+
+[node name="Agility" type="Label" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/Statistics"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 0
+text = "agility +2"
+
+[node name="CWikiLink" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/Statistics/Agility"]
+script = ExtResource("1_xwm5u")
+file = "res://wiki/combat/statistics/agility.md"
+
+[node name="CTooltip" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/Statistics/Agility"]
+script = ExtResource("2_27abi")
+label = "base +3
+ooze shoes +1"
+
+[node name="Wisdom" type="Label" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/Statistics"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 0
+text = "wisdom -1"
+
+[node name="CWikiLink" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/Statistics/Wisdom"]
+script = ExtResource("1_xwm5u")
+file = "res://wiki/combat/statistics/wisdom.md"
+
+[node name="CTooltip" type="Node" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/Statistics/Wisdom"]
+script = ExtResource("2_27abi")
+label = "base +3
+ooze shoes +1"
+
+[node name="HumanoidItems" type="Control" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(132, 88)
+layout_mode = 2
+
+[node name="Head" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/HumanoidItems" instance=ExtResource("2_b81ho")]
+layout_mode = 0
+offset_left = 44.0
+offset_right = 84.0
+
+[node name="HandR" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/HumanoidItems" instance=ExtResource("2_b81ho")]
+layout_mode = 0
+offset_top = 22.0
+offset_bottom = 62.0
+texture_normal = ExtResource("3_figxy")
+slot_type = 2
+
+[node name="HandL" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/HumanoidItems" instance=ExtResource("2_b81ho")]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 22.0
+offset_right = 128.0
+offset_bottom = 62.0
+texture_normal = ExtResource("4_ljyuy")
+slot_type = 2
+flip = true
+
+[node name="Body" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Row/HumanoidItems" instance=ExtResource("2_b81ho")]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 44.0
+offset_right = 84.0
+offset_bottom = 84.0
+texture_normal = ExtResource("5_c5fup")
+slot_type = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer"]
+layout_mode = 2
+
+[node name="Actions" type="VBoxContainer" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VSplitContainer/TabContainer/ScrollContainer/InfoContainer/Actions"]
+layout_mode = 2
+text = "actions"
+
+[node name="Inventory" type="VBoxContainer" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VSplitContainer/Inventory"]
+layout_mode = 2
+mouse_filter = 0
+text = "Inventory"
+
+[node name="CWikiLink" type="Node" parent="VSplitContainer/Inventory/Label"]
+script = ExtResource("1_xwm5u")
+file = "res://wiki/inventory.md"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/Inventory"]
+layout_mode = 2
+
+[node name="Slot" parent="VSplitContainer/Inventory/HBoxContainer" instance=ExtResource("2_b81ho")]
+layout_mode = 2
+texture_normal = ExtResource("6_217sm")
+slot_type = 3
+
+[node name="Slot2" parent="VSplitContainer/Inventory/HBoxContainer" instance=ExtResource("2_b81ho")]
+layout_mode = 2
+texture_normal = ExtResource("6_217sm")
+slot_type = 3
+
+[node name="Slot3" parent="VSplitContainer/Inventory/HBoxContainer" instance=ExtResource("2_b81ho")]
+layout_mode = 2
+texture_normal = ExtResource("6_217sm")
+slot_type = 3
+
+[node name="Slot4" parent="VSplitContainer/Inventory/HBoxContainer" instance=ExtResource("2_b81ho")]
+layout_mode = 2
+texture_normal = ExtResource("6_217sm")
+slot_type = 3

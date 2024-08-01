@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://bykcbldlf817x"]
+
+[ext_resource type="Script" path="res://scenes/creature/type/humanoid/humanoid_sprite.gd" id="1_2waly"]
+[ext_resource type="Texture2D" uid="uid://cixmxupchk5et" path="res://scenes/creature/type/humanoid/tunic.png" id="2_1plko"]
+[ext_resource type="Texture2D" uid="uid://bi2afrrs68kka" path="res://scenes/creature/type/humanoid/leg/skin_1.png" id="2_iepuh"]
+[ext_resource type="Texture2D" uid="uid://d3lljobfihjfb" path="res://scenes/creature/type/humanoid/arm/skin_1.png" id="3_ugpmi"]
+[ext_resource type="Texture2D" uid="uid://bfqb1oc7x65cm" path="res://scenes/creature/type/humanoid/head/skin_1.png" id="4_tfajs"]
+[ext_resource type="Shader" path="res://scenes/creature/type/humanoid/face.gdshader" id="5_fj2ow"]
+[ext_resource type="Texture2D" uid="uid://qauvdtbe3hub" path="res://scenes/creature/type/humanoid/face/angy.png" id="5_juqxo"]
+[ext_resource type="Texture2D" uid="uid://bjxjr8tehjqqc" path="res://scenes/creature/type/humanoid/hair/mohawk.png" id="8_aycoo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3wn2p"]
+shader = ExtResource("5_fj2ow")
+shader_parameter/skin_darken = null
+shader_parameter/eyes = null
+
+[node name="Sprite" type="Node2D"]
+script = ExtResource("1_2waly")
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, 10)
+texture = ExtResource("2_1plko")
+
+[node name="ArmL" type="Sprite2D" parent="Body"]
+show_behind_parent = true
+position = Vector2(8, -7)
+rotation = -0.872665
+texture = ExtResource("3_ugpmi")
+offset = Vector2(0, 10)
+
+[node name="Item" type="Sprite2D" parent="Body/ArmL"]
+visible = false
+position = Vector2(0, 18)
+rotation = 1.22173
+
+[node name="LegR" type="Sprite2D" parent="Body"]
+show_behind_parent = true
+position = Vector2(-6, 9)
+texture = ExtResource("2_iepuh")
+offset = Vector2(-3, 8)
+
+[node name="LegL" type="Sprite2D" parent="Body"]
+show_behind_parent = true
+position = Vector2(11, 12)
+texture = ExtResource("2_iepuh")
+offset = Vector2(4, 6)
+flip_h = true
+
+[node name="ArmR" type="Sprite2D" parent="Body"]
+position = Vector2(-8, -7)
+rotation = 0.872665
+texture = ExtResource("3_ugpmi")
+offset = Vector2(0, 10)
+flip_h = true
+
+[node name="Item" type="Sprite2D" parent="Body/ArmR"]
+visible = false
+position = Vector2(0, 18)
+rotation = -1.22173
+flip_h = true
+
+[node name="Head" type="Sprite2D" parent="Body"]
+position = Vector2(1, -23)
+texture = ExtResource("4_tfajs")
+
+[node name="Face" type="Sprite2D" parent="Body/Head"]
+material = SubResource("ShaderMaterial_3wn2p")
+texture = ExtResource("5_juqxo")
+
+[node name="Item" type="Sprite2D" parent="Body/Head"]
+visible = false
+offset = Vector2(-2, -8)
+
+[node name="Hair" type="Sprite2D" parent="Body/Head"]
+texture = ExtResource("8_aycoo")

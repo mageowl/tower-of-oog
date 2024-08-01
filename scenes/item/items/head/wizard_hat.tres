@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Item" load_steps=8 format=3 uid="uid://b5lgdhy2154qf"]
+
+[ext_resource type="Script" path="res://scenes/item/action.gd" id="1_rnc0l"]
+[ext_resource type="Script" path="res://scenes/item/modifier.gd" id="1_ywxtv"]
+[ext_resource type="Script" path="res://scenes/item/equation/constant.gd" id="2_75xvt"]
+[ext_resource type="Script" path="res://scenes/item/item.gd" id="2_vokt4"]
+[ext_resource type="Texture2D" uid="uid://dk87k3e4wyqvr" path="res://scenes/item/items/head/wizard_hat.png" id="3_sw6bq"]
+
+[sub_resource type="Resource" id="Resource_n4qrl"]
+script = ExtResource("2_75xvt")
+value = 2.0
+
+[sub_resource type="Resource" id="Resource_cyjoo"]
+script = ExtResource("1_ywxtv")
+type = 1
+target = 2
+equation = SubResource("Resource_n4qrl")
+
+[resource]
+script = ExtResource("2_vokt4")
+name = "Wizard Hat"
+slot = 0
+wiki_page = "res://wiki/items/wizard_hat.md"
+modifiers = Array[ExtResource("1_ywxtv")]([SubResource("Resource_cyjoo")])
+actions = Array[ExtResource("1_rnc0l")]([])
+texture = ExtResource("3_sw6bq")
+offset = Vector2(-2, -8)

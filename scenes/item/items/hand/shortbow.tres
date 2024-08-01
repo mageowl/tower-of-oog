@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://cugmryeytlcw"]
+
+[ext_resource type="Script" path="res://scenes/item/modifier.gd" id="1_bhqrj"]
+[ext_resource type="Script" path="res://scenes/item/action.gd" id="1_ouw7e"]
+[ext_resource type="Script" path="res://scenes/item/item.gd" id="2_jex5c"]
+[ext_resource type="Texture2D" uid="uid://m7pxwof8ge2l" path="res://scenes/item/items/hand/shortbow.png" id="3_5k1eh"]
+
+[sub_resource type="Resource" id="Resource_vmn17"]
+script = ExtResource("1_ouw7e")
+name = "shoot"
+target = 2
+ap_cost = 1
+animation = ""
+
+[resource]
+script = ExtResource("2_jex5c")
+name = "shortbow"
+slot = 2
+wiki_page = ""
+modifiers = Array[ExtResource("1_bhqrj")]([])
+actions = Array[ExtResource("1_ouw7e")]([SubResource("Resource_vmn17")])
+texture = ExtResource("3_5k1eh")
+offset = Vector2(0, -2)

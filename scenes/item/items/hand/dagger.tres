@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Item" load_steps=15 format=3 uid="uid://cv38s3adoiax0"]
+
+[ext_resource type="Script" path="res://scenes/item/action.gd" id="1_dm07r"]
+[ext_resource type="Script" path="res://scenes/item/modifier.gd" id="1_x1q2g"]
+[ext_resource type="Script" path="res://scenes/item/item.gd" id="2_ln30h"]
+[ext_resource type="Script" path="res://scenes/item/equation/constant.gd" id="2_xxyko"]
+[ext_resource type="Texture2D" uid="uid://cys3ccek71q3c" path="res://scenes/item/items/hand/dagger.png" id="3_mtvrl"]
+[ext_resource type="Script" path="res://scenes/item/equation/stat.gd" id="3_nmshm"]
+[ext_resource type="Script" path="res://scenes/item/equation/sum.gd" id="4_6wtrr"]
+[ext_resource type="Script" path="res://scenes/item/effect/melee_damage.gd" id="5_ayf2t"]
+
+[sub_resource type="Resource" id="Resource_yy8of"]
+script = ExtResource("2_xxyko")
+value = 3
+
+[sub_resource type="Resource" id="Resource_60vpm"]
+script = ExtResource("3_nmshm")
+stat = 0
+
+[sub_resource type="Resource" id="Resource_ki8iv"]
+script = ExtResource("4_6wtrr")
+a = SubResource("Resource_yy8of")
+b = SubResource("Resource_60vpm")
+
+[sub_resource type="Resource" id="Resource_36j5o"]
+script = ExtResource("2_xxyko")
+value = 1
+
+[sub_resource type="Resource" id="Resource_u6vls"]
+script = ExtResource("5_ayf2t")
+min_damage = SubResource("Resource_36j5o")
+max_damage = SubResource("Resource_ki8iv")
+
+[sub_resource type="Resource" id="Resource_1xhaf"]
+script = ExtResource("1_dm07r")
+name = "stab"
+target = 2
+effect = SubResource("Resource_u6vls")
+ap_cost = 1
+animation = "swing_1"
+
+[resource]
+script = ExtResource("2_ln30h")
+name = "dagger"
+slot = 2
+wiki_page = ""
+modifiers = Array[ExtResource("1_x1q2g")]([])
+actions = Array[ExtResource("1_dm07r")]([SubResource("Resource_1xhaf")])
+texture = ExtResource("3_mtvrl")
+offset = Vector2(0, -4)

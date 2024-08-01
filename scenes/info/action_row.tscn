@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://2i8r3eypmmgx"]
+
+[ext_resource type="FontFile" uid="uid://ysctpo7l0nbu" path="res://global/theme/numbers.png" id="1_fpv27"]
+[ext_resource type="Script" path="res://scenes/info/action_row.gd" id="1_qexms"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e17cq"]
+font = ExtResource("1_fpv27")
+font_size = 20
+font_color = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ndvqm"]
+font_size = 20
+
+[node name="ActionRow" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 29.0
+grow_horizontal = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("1_qexms")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "swing"
+
+[node name="Target" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = " > enemy"
+label_settings = SubResource("LabelSettings_e17cq")
+
+[node name="Cost" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1 ap"
+label_settings = SubResource("LabelSettings_ndvqm")
+horizontal_alignment = 2

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://yu7as2ckt38p"]
+
+[ext_resource type="PackedScene" uid="uid://bykcbldlf817x" path="res://scenes/creature/type/humanoid/humanoid_sprite.tscn" id="1_68nkm"]
+[ext_resource type="Script" path="res://scenes/creature/type/goblin/goblin_sprite.gd" id="2_60hrd"]
+[ext_resource type="Texture2D" uid="uid://d2i8rowut5iq4" path="res://scenes/creature/type/goblin/arm.png" id="3_erd6t"]
+[ext_resource type="Texture2D" uid="uid://f13ybmcyiaoi" path="res://scenes/creature/type/goblin/leg.png" id="4_m06as"]
+[ext_resource type="Texture2D" uid="uid://gqywkm0e310g" path="res://scenes/creature/type/goblin/head.png" id="5_0nn5i"]
+
+[node name="Sprite" instance=ExtResource("1_68nkm")]
+script = ExtResource("2_60hrd")
+
+[node name="ArmL" parent="Body" index="0"]
+texture = ExtResource("3_erd6t")
+
+[node name="LegR" parent="Body" index="1"]
+texture = ExtResource("4_m06as")
+
+[node name="LegL" parent="Body" index="2"]
+texture = ExtResource("4_m06as")
+
+[node name="ArmR" parent="Body" index="3"]
+texture = ExtResource("3_erd6t")
+
+[node name="Head" parent="Body" index="4"]
+texture = ExtResource("5_0nn5i")
+offset = Vector2(-1, 0)
